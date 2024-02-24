@@ -1,0 +1,41 @@
+<div style="width: 100%; height: 80vh;" class="d-flex justify-content-center align-items-center">
+ 
+<div style="width:800px; height: 560px;" class=" mt-5 shadow bg-info row rounded p-5 align-items-center">
+    <div class="col-6">
+ 
+
+        <img class="img-fluid" src="https://www.1stop.ai/images/login-bg.png" alt="">
+    </div>
+    <div class="col-6 text-light border p-2">
+        <h2 class="text-center">Login Form</h2>
+        <form #loginForm="ngForm" (ngSubmit)="login()" >
+            <div class="mb-3 mt-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input name="email" [(ngModel)]="email" type="email" class="form-control" id="exampleInputEmail1" email required #userEmailInput="ngModel">
+            </div>
+            <div *ngIf="userEmailInput.invalid && userEmailInput.touched" class="mb-3  text-danger fw-bolder">*invalid email</div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input name="password"  [(ngModel)]="password" type="password" class="form-control" id="exampleInputPassword1" pattern="[a-zA-Z0-9]*" minlength="3" required #userPswdInput="ngModel">
+            </div>
+            <div *ngIf="userPswdInput.invalid && userPswdInput.touched" class="mb-3  text-danger fw-bolder">*invalid Password</div>
+
+            <!-- <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> -->
+            <button [disabled]="loginForm.invalid && loginForm.touched" type="submit" class="btn btn-primary ">Login</button>
+          </form>
+    </div>
+   
+  
+</div>
+
+<!-- <pre>
+  email: {{email}}
+   password:{{password}}
+</pre> -->
+
+
+
+</div>

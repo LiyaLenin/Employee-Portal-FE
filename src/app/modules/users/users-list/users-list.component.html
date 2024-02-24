@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="row">
+        <div style="height: 91vh; width: fit-content;" class="col-lg-2 bg-info d-flex flex-column p-3">
+    <a style="text-decoration: none; color: white; " class="fw-bolder mb-3 ms-2" routerLink="/dashboard">HOME</a>
+    <a style="text-decoration: none; color: white; " class="fw-bolder ms-2" routerLink="/users"> USERS</a>
+        </div>
+        <div class="col p-3">
+    <div class="d-flex justify-content-between w-100">
+       <h1> All Users List</h1>
+       <a class="btn btn-success" routerLink="/users/add"><i class="fa-solid fa-user-plus"></i> Add</a>
+    </div>
+    <table class="table shadow mt-5">
+<thead>
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Action</th>
+
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>1</td>
+        <td>Max Miller</td>
+        <td>max@gmail.com </td>
+        <td>Active</td>
+        <td><a routerLink="/users/edit/1"><i class="fa-solid fa-pen text-success"></i></a> 
+            <button class="btn"><i class="fa-solid fa-trash text-danger"></i></button>
+        </td>
+        
+    </tr>
+</tbody>
+    </table>
+        </div>
+    </div>
+</div>

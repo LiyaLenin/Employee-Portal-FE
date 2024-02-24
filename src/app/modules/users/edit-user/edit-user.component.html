@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+        <div style="height: 91vh; width: fit-content;" class="col-lg-2 bg-info d-flex flex-column p-3">
+            <a style="text-decoration: none; color: white; " class="fw-bolder mb-3 ms-2"
+                routerLink="/dashboard">HOME</a>
+            <a style="text-decoration: none; color: white; " class="fw-bolder ms-2" routerLink="/users"> USERS</a>
+        </div>
+        <div class="col-lg-10">
+          <div style="height:80%" class="w-100 d-flex align-items-center justify-content-center flex-column "> 
+             <h1>Edit UserForm</h1>
+          <form class="border rounded p-3 w-50 mt-5">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Employee Id</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Username</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class=" form-floating mb-3">
+                <label for="exampleInputEmail1" class="form-label">Status</label>
+              <select class="form-control" name="" id="floatingInputstatus">
+                <option disabled selected hidden value=""></option>
+                <option value="">Active</option>
+                <option value="">Inactive</option>
+                <option value=""></option>
+              </select>
+             
+
+            </div>
+          <div class="text-center">
+               
+                <button type="submit" class="btn btn-warning me-5">Cancel</button>
+                <button type="submit" class="btn btn-success">Update</button>
+    
+          </div>
+          </form>
+        </div>
+        </div>
+  
+    </div>
+</div>
