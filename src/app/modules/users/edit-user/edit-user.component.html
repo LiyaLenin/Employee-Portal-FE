@@ -8,37 +8,46 @@
         <div class="col-lg-10">
           <div style="height:80%" class="w-100 d-flex align-items-center justify-content-center flex-column "> 
              <h1>Edit UserForm</h1>
-          <form class="border rounded p-3 w-50 mt-5">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Employee Id</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+             <form #editUserForm="ngForm" class="border rounded p-3 w-50 mt-5" >
+              <div class="mb-3">
+                  <label class="form-floating" for="floatingInputId">Employee Id</label>
+                  <input name="empId" [(ngModel)]="user.empId" type="text" class="form-control" id="floatingInputId" pattern="[a-zA-Z0-9]*"  required #empId="ngModel" >
+                </div>
+                <div *ngIf="empId.invalid && empId.touched" class="mb-3  text-danger fw-bolder">*invalid Employee Id</div>
+  
+              <div class="mb-3">
+                  <label for="floatingInputName" >Username</label>
+                  <input  name="empName" [(ngModel)]="user.name" type="text" class="form-control" id="floatingInputName"  pattern="[a-zA-Z ]*"  required #empName="ngModel" >
+                </div>
+                <div *ngIf="empName.invalid && empName.touched" class="mb-3  text-danger fw-bolder">*invalid Employee Name</div>
+  
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input  name="empEmail" [(ngModel)]="user.email" type="email" class="form-control" id="exampleInputEmail1" email required #email="ngModel">
               </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Username</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class=" form-floating mb-3">
-                <label for="exampleInputEmail1" class="form-label">Status</label>
-              <select class="form-control" name="" id="floatingInputstatus">
-                <option disabled selected hidden value=""></option>
-                <option value="">Active</option>
-                <option value="">Inactive</option>
-                <option value=""></option>
-              </select>
-             
-
-            </div>
-          <div class="text-center">
+              <div *ngIf="email.invalid && email.touched" class="mb-3  text-danger fw-bolder">*invalid Email</div>
+  
+              <div class=" form-floating mb-3">
+                <select class="form-control" name="status" [(ngModel)]="user.status"  id="floatingInputstatus" required #status="ngModel">
+                  <option disabled selected hidden value=""></option>
+                  <option value="1">Active</option>
+                  <option value="0">Inactive</option>
+                 
+                </select>
+                <label for="floatingInputstatus" class="form-label">Status</label>
+  
                
-                <button type="submit" class="btn btn-warning me-5">Cancel</button>
-                <button type="submit" class="btn btn-success">Update</button>
-    
-          </div>
-          </form>
+  
+              </div>
+              <div *ngIf="status.invalid && status.touched" class="mb-3  text-danger fw-bolder">*invalid status</div>
+  
+            <div class="text-center">
+                 
+                  <button  (click)="cancel(user.id)" class="btn btn-warning me-5">Cancel</button>
+                  <button  (click)="updateUser(user.id)" [disabled]="editUserForm.invalid" type="submit" class="btn btn-success">Update</button>
+      
+            </div>
+            </form>
         </div>
         </div>
   
