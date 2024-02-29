@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddUserComponent {
  user:UserSchema={}
+ 
 constructor(private api:ApiService , private toaster: ToastrService){}
 
 

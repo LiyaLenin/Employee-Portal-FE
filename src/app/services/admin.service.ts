@@ -5,12 +5,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AdminService {
- SERVER_URL:string='http://localhost:3000'
+ SERVER_URL:string='https://employee-portal-server-vs5s.onrender.com'
 
   constructor(private http:HttpClient) { }
   
  getAdminDetails(){
    return this.http.get(`${this.SERVER_URL}/users/1`)
 
+  }
+  updateAdminAPI(adminDetails:any){
+    return this.http.put(`${this.SERVER_URL}/users/1`,adminDetails)
+
+  }
+  isLoggedIn(){
+  return !!sessionStorage.getItem("adminDetails")
   }
 }

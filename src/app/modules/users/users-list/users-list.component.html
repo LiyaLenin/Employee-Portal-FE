@@ -9,6 +9,20 @@
        <h1> All Users List</h1>
        <a class="btn btn-success" routerLink="/users/add"><i class="fa-solid fa-user-plus"></i> Add</a>
     </div>
+    <div class="d-flex align-items-center m-3">
+        <span>Search: </span>
+        <input [(ngModel)]="searchKey" type="text" class="form-control ms-2 w-25 me-4" placeholder="Search By Username">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Sort
+            </button>
+            <ul class="dropdown-menu">
+              <li ><button class="dropdown-item">By Id</button></li>
+              <li ><button (click)="sortByName()" class="dropdown-item" >By Username</button></li>
+            </ul>
+          </div>
+          <button (click)="generatePDF()" class="btn btn-primary ms-auto">Export</button>
+    </div>
     <table class="table shadow mt-5">
 <thead>
     <tr>
@@ -22,7 +36,7 @@
     </tr>
 </thead>
 <tbody>
-    <tr *ngFor="let user of allusers ; let i=index " [hidden]="!user.empId">
+    <tr *ngFor="let user of allusers| search:searchKey|paginate:{itemsPerPage:4,currentPage:page} ; let i=index " [hidden]="!user.empId">
         <td>{{i}}</td>
         <td>{{user.empId}}</td>
         <td>{{user.name}}</td>
@@ -33,8 +47,14 @@
         </td>
         
     </tr>
+    <tr *ngIf="(allusers| search:searchKey).length==0 ">
+        <p class="fw-bolder text-danger">User not Found !!!!!</p>
+    </tr>
 </tbody>
     </table>
+    <div class="text-center mt-5">
+        <pagination-controls (pageChange)="page=$event" ></pagination-controls>
+    </div>
         </div>
     </div>
 </div>

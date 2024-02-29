@@ -6,7 +6,7 @@ import { UserSchema } from '../Models/userSchema';
   providedIn: 'root'
 })
 export class ApiService {
-  SERVER_URL:string='http://localhost:3000'
+  SERVER_URL:string='https://employee-portal-server-vs5s.onrender.com'
   constructor(private http:HttpClient) { }
   addUserAPI(user:UserSchema){
    return this.http.post(`${this.SERVER_URL}/users`,user)
